@@ -7,6 +7,6 @@
 
 <!--
 - Please fill in this template according to your issue.
-- For support request or how-tos, visit https://discordapp.com or https://labymod.net/devcord
+- For support request or how-tos, visit https://labymod.net/dc/dev
 - Otherwise, replace this comment by the description of your issue.
 -->
