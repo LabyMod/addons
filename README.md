@@ -7,4 +7,4 @@
 // ...
 
 ### Workflow
-Please have a look [here](./CONTRIBUTING.md) for diving into contribution.
+Please have a look [here](./CONTRIBUTING.md#workflow) for diving into contribution.
