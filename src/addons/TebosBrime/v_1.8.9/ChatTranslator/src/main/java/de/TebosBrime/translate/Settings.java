@@ -5,11 +5,8 @@ import de.TebosBrime.translate.enums.EnumModuleTranslatorSources;
 import de.TebosBrime.translate.utils.TextElement;
 import net.labymod.gui.elements.DropDownMenu;
 import net.labymod.settings.elements.*;
-import net.labymod.utils.Consumer;
 import net.labymod.utils.Material;
-import org.lwjgl.Sys;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Settings {
@@ -20,7 +17,7 @@ public class Settings {
     private boolean translateAtHover;
     private int delaySeconds;
     private String apiKey;
-    private int translator_source;
+    private EnumModuleTranslatorSources translator_source;
 
     private List<SettingsElement> subSettings;
 
@@ -41,7 +38,7 @@ public class Settings {
 
     private void loadConfig(){
         this.enabled = TranslatorAddon.getInstance().getConfig().has(ENABLED) ? TranslatorAddon.getInstance().getConfig().get(ENABLED).getAsBoolean() : true;
-        this.translator_source = TranslatorAddon.getInstance().getConfig().has(SOURCE) ? TranslatorAddon.getInstance().getConfig().get(SOURCE).getAsInt() : 0;
+        this.translator_source = TranslatorAddon.getInstance().getConfig().has(SOURCE) ? EnumModuleTranslatorSources.fromString(TranslatorAddon.getInstance().getConfig().get(SOURCE).getAsString()) : EnumModuleTranslatorSources.DEFAULT;
         this.lang = TranslatorAddon.getInstance().getConfig().has(LANG) ? TranslatorAddon.getInstance().getConfig().get(LANG).getAsInt() : 0;
         this.translation_icon = TranslatorAddon.getInstance().getConfig().has(ICON) ? TranslatorAddon.getInstance().getConfig().get(ICON).getAsString() : " &7[&gT&7]";
         this.translateAtHover = TranslatorAddon.getInstance().getConfig().has(HOVER) ? TranslatorAddon.getInstance().getConfig().get(HOVER).getAsBoolean() : false;
@@ -60,18 +57,19 @@ public class Settings {
 
         DropDownMenu<EnumModuleTranslatorSources> alignmentDropDownMenu = new DropDownMenu<EnumModuleTranslatorSources>("Translator", 0, 0, 0, 0 ).fill(EnumModuleTranslatorSources.values());
         DropDownElement<EnumModuleTranslatorSources> alignmentDropDown = new DropDownElement<>("Translator", alignmentDropDownMenu );
-        alignmentDropDownMenu.setSelected(EnumModuleTranslatorSources.fromInt(translator_source));
+        alignmentDropDownMenu.setSelected(translator_source);
         alignmentDropDown.setChangeListener(alignment -> {
-            translator_source = EnumModuleTranslatorSources.fromEnum(alignment);
+            translator_source = alignment;
             saveConfig();
         });
         subSettings.add(alignmentDropDown);
 
         String[] help;
 
+        /*
         //TODO: added config refresh
-        if(EnumModuleTranslatorSources.needKey(translator_source)) {
-            if(translator_source == 2){
+        if(translator_source.needKey()) {
+            if(translator_source == EnumModuleTranslatorSources.THESAURUS){
                 help = new String[]{
                         "Thesaurus API can only translate single",
                         "words. May use /+translate <your word>",
@@ -95,6 +93,7 @@ public class Settings {
             });
             subSettings.add(apiKeyElement);
         }
+        */
 
         DropDownMenu<EnumModuleLanguages> alignmentDropDownMenu2 = new DropDownMenu<EnumModuleLanguages>("Translate to", 0, 0, 0, 0).fill(EnumModuleLanguages.values());
         DropDownElement<EnumModuleLanguages> alignmentDropDown2 = new DropDownElement<>("Translate to", alignmentDropDownMenu2);
@@ -152,7 +151,7 @@ public class Settings {
 
     private void saveConfig(){
         TranslatorAddon.getInstance().getConfig().addProperty(ENABLED, this.enabled);
-        TranslatorAddon.getInstance().getConfig().addProperty(SOURCE, this.translator_source);
+        TranslatorAddon.getInstance().getConfig().addProperty(SOURCE, this.translator_source.toString());
         TranslatorAddon.getInstance().getConfig().addProperty(LANG, this.lang);
         TranslatorAddon.getInstance().getConfig().addProperty(ICON, this.translation_icon);
         TranslatorAddon.getInstance().getConfig().addProperty(HOVER, this.translateAtHover);
@@ -169,20 +168,12 @@ public class Settings {
         return enabled;
     }
 
-    public EnumModuleTranslatorSources getTranslatorAsValue(){
-        return EnumModuleTranslatorSources.fromInt(this.translator_source);
-    }
-
-    public int getTranslatorAsInt(){
+    public EnumModuleTranslatorSources getTranslatorSource(){
         return translator_source;
     }
 
-    public EnumModuleLanguages getLanguageAsValue(){
-        return EnumModuleLanguages.fromInt(this.lang);
-    }
-
     public int getLanguageAsInt(){
-        return this.lang;
+        return lang;
     }
 
     public String getTranslation_icon() {

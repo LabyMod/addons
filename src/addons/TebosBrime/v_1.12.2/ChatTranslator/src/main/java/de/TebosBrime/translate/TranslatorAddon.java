@@ -45,7 +45,7 @@ public class TranslatorAddon extends LabyModAddon {
     }
 
     public void resetTranslator(){
-        translator = TranslatorManager.getTrangslator(getSettings().getTranslatorAsInt());
+        translator = TranslatorManager.getTrangslator(getSettings().getTranslatorSource());
         translator.setAPIKey(settings.getApiKey());
         translator.setOutputLanguage(settings.getLanguageAsInt());
     }
