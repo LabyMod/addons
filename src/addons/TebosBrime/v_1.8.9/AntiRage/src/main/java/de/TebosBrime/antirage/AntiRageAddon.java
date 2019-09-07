@@ -1,6 +1,8 @@
 package de.TebosBrime.antirage;
 
+import de.TebosBrime.antirage.gui.FilterGui;
 import net.labymod.api.LabyModAddon;
+import net.labymod.gui.elements.Tabs;
 import net.labymod.settings.elements.SettingsElement;
 
 import java.util.List;
@@ -21,6 +23,8 @@ public class AntiRageAddon extends LabyModAddon {
         antiRageAddon = this;
         filter = new Filter();
         listener = new Listener();
+
+        Tabs.getTabUpdateListener().add(map -> map.put("AntiRage filterlist", new Class[]{FilterGui.class}));
 
         System.out.println("============================================");
         System.out.println("    Enabled AntiRage Addon for LabyMod      ");

@@ -242,8 +242,8 @@ public class Listener {
             }
         }
 
-        if (AntiRageAddon.getSettings().getMenuKey() != -1 && Keyboard.isKeyDown(AntiRageAddon.getSettings().getMenuKey())) {
+        /*if (AntiRageAddon.getSettings().getMenuKey() != -1 && Keyboard.isKeyDown(AntiRageAddon.getSettings().getMenuKey())) {
             Minecraft.getMinecraft().displayGuiScreen(new FilterGui());
-        }
+        }*/
     }
 }

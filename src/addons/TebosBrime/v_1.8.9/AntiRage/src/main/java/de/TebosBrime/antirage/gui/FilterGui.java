@@ -3,6 +3,7 @@ package de.TebosBrime.antirage.gui;
 import de.TebosBrime.antirage.AntiRageAddon;
 import de.TebosBrime.antirage.Helper;
 import net.labymod.gui.elements.Scrollbar;
+import net.labymod.gui.elements.Tabs;
 import net.labymod.main.LabyMod;
 import net.labymod.utils.ModColor;
 import net.minecraft.client.Minecraft;
@@ -29,7 +30,10 @@ public class FilterGui extends GuiScreen {
         this.buttonList.add(this.buttonRemove = new GuiButton(1, this.width / 2 - 100, this.height - 26, 90, 20, "Remove"));
         this.buttonList.add(new GuiButton(4, 10, this.height - 26, 120, 20, "Download from web"));
         this.buttonList.add(new GuiButton(2, this.width / 2 + 10, this.height - 26, 90, 20, "Add"));
-        this.buttonList.add(new GuiButton(3, this.width - 130, this.height - 26, 120, 20, "Close")); }
+        //this.buttonList.add(new GuiButton(3, this.width - 130, this.height - 26, 120, 20, "Close"));
+
+        Tabs.initGuiScreen(this.buttonList, this);
+    }
 
     public void onGuiClosed() {
         super.onGuiClosed();
@@ -50,15 +54,16 @@ public class FilterGui extends GuiScreen {
                 //Add
                 Minecraft.getMinecraft().displayGuiScreen(new AddGui(this));
                break;
-            case 3:
+            /*case 3:
                 //Close
                 Minecraft.getMinecraft().displayGuiScreen(null);
-                break;
+                break;*/
             case 4:
                 //download list
                 Minecraft.getMinecraft().displayGuiScreen(new DownloadGui(this));
                 break;
         }
+        Tabs.actionPerformedButton(button);
     }
 
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
@@ -76,7 +81,7 @@ public class FilterGui extends GuiScreen {
         LabyMod.getInstance().getDrawUtils().drawGradientShadowTop(41.0D, 0.0D, this.width);
         LabyMod.getInstance().getDrawUtils().drawGradientShadowBottom(this.height - 32, 0.0D, this.width);
 
-        LabyMod.getInstance().getDrawUtils().drawCenteredString("AntiRage Filter List", this.width / 2, 20.0D);
+        LabyMod.getInstance().getDrawUtils().drawCenteredString("Your filterlist", this.width / 2, 29.0D);
 
         this.scrollbar.update(AntiRageAddon.getFilter().size());
         this.scrollbar.draw();
@@ -89,7 +94,7 @@ public class FilterGui extends GuiScreen {
     private void drawEntry(String key, double y, int mouseX, int mouseY) {
         int x = this.width / 2 - 100;
 
-        boolean hovered = (mouseX > x) && (mouseX < x + 200) && (mouseY > y) && (mouseY < y + 11.0D) && (mouseX > 32) && (mouseY < this.height - 32);
+        boolean hovered = (mouseX > x) && (mouseX < x + 200) && (mouseY > y - 4) && (mouseY < y + 11) && (mouseX > 32) && (mouseY < this.height - 32);
         if (hovered) {
             this.hoveredString = key;
         }

@@ -3,7 +3,7 @@
   "name": "AntiRage",
   "mainClass": "de.TebosBrime.antirage.AntiRageAddon",
   "description": "adds a chatfilter, protects you from mutes / bans",
-  "version": 5,
+  "version": 6,
   "author": "TebosBrime",
   "category": 2,
   "icon": "http://tebosbrime.de/labymodaddons/img/antirage.png"
