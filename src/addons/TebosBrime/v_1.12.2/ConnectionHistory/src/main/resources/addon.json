@@ -1,0 +1,10 @@
+{
+  "uuid": "%uuid%",
+  "name": "ConnectionHistory",
+  "mainClass": "de.TebosBrime.connectionhistory.ConnectionHistoryAddon",
+  "description": "adds a server connection history to your main menu",
+  "version": 1,
+  "author": "TebosBrime",
+  "category": 2,
+  "icon": "http://tebosbrime.de/labymodaddons/img/connectionhistory.png"
+}
