@@ -14,8 +14,8 @@ public class Settings {
     private boolean enabled;
     private int lang;
     private String translation_icon;
-    private boolean translateAtHover;
-    private int delaySeconds;
+    //private boolean translateAtHover;
+    //private int delaySeconds;
     private String apiKey;
     private EnumModuleTranslatorSources translator_source;
 
@@ -32,8 +32,8 @@ public class Settings {
     private final String SOURCE = "source";
     private final String LANG = "lang";
     private final String ICON = "icon";
-    private final String HOVER = "hover";
-    private final String DELAY = "delay";
+    //private final String HOVER = "hover";
+    //private final String DELAY = "delay";
     private final String APIKEY = "apiKey";
 
     private void loadConfig(){
@@ -41,8 +41,8 @@ public class Settings {
         this.translator_source = TranslatorAddon.getInstance().getConfig().has(SOURCE) ? EnumModuleTranslatorSources.fromString(TranslatorAddon.getInstance().getConfig().get(SOURCE).getAsString()) : EnumModuleTranslatorSources.DEFAULT;
         this.lang = TranslatorAddon.getInstance().getConfig().has(LANG) ? TranslatorAddon.getInstance().getConfig().get(LANG).getAsInt() : 0;
         this.translation_icon = TranslatorAddon.getInstance().getConfig().has(ICON) ? TranslatorAddon.getInstance().getConfig().get(ICON).getAsString() : " &7[&gT&7]";
-        this.translateAtHover = TranslatorAddon.getInstance().getConfig().has(HOVER) ? TranslatorAddon.getInstance().getConfig().get(HOVER).getAsBoolean() : false;
-        this.delaySeconds = TranslatorAddon.getInstance().getConfig().has(DELAY) ? TranslatorAddon.getInstance().getConfig().get(DELAY).getAsInt() : 2;
+        //this.translateAtHover = TranslatorAddon.getInstance().getConfig().has(HOVER) ? TranslatorAddon.getInstance().getConfig().get(HOVER).getAsBoolean() : false;
+        //this.delaySeconds = TranslatorAddon.getInstance().getConfig().has(DELAY) ? TranslatorAddon.getInstance().getConfig().get(DELAY).getAsInt() : 2;
         this.apiKey = TranslatorAddon.getInstance().getConfig().has(APIKEY) ? TranslatorAddon.getInstance().getConfig().get(APIKEY).getAsString() : "CHANGE_ME";
     }
 
@@ -120,6 +120,7 @@ public class Settings {
         });
         subSettings.add(icon);
 
+        /*
         subSettings.add(new HeaderElement("AutoTranslation"));
         help = new String[]{
                 "Auto translation is a test feature.",
@@ -146,7 +147,7 @@ public class Settings {
             delaySeconds = accepted;
             saveConfig();
         });
-        subSettings.add( numberElement );
+        subSettings.add( numberElement );*/
     }
 
     private void saveConfig(){
@@ -154,8 +155,8 @@ public class Settings {
         TranslatorAddon.getInstance().getConfig().addProperty(SOURCE, this.translator_source.toString());
         TranslatorAddon.getInstance().getConfig().addProperty(LANG, this.lang);
         TranslatorAddon.getInstance().getConfig().addProperty(ICON, this.translation_icon);
-        TranslatorAddon.getInstance().getConfig().addProperty(HOVER, this.translateAtHover);
-        TranslatorAddon.getInstance().getConfig().addProperty(DELAY, this.delaySeconds);
+        //TranslatorAddon.getInstance().getConfig().addProperty(HOVER, this.translateAtHover);
+        //TranslatorAddon.getInstance().getConfig().addProperty(DELAY, this.delaySeconds);
         TranslatorAddon.getInstance().getConfig().addProperty(APIKEY, this.apiKey);
 
         TranslatorAddon.getInstance().resetTranslator();
@@ -181,11 +182,11 @@ public class Settings {
     }
 
     public boolean isTranslateAtHover() {
-        return translateAtHover;
+        return false;
     }
 
     public int getDelaySeconds() {
-        return delaySeconds;
+        return 0;
     }
 
     public String getApiKey(){
