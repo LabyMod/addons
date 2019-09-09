@@ -42,12 +42,11 @@ public class Settings {
             saveConfig();
         }, enabled));
 
-        /*
+
         this.subSettings.add(new BooleanElement("Exact message check", new ControlElement.IconData(Material.LEVER), aBoolean -> {
             exact = aBoolean;
             saveConfig();
         }, exact));
-        */
 
         KeyElement keyElement = new KeyElement( "Disable filter for 15 seconds",
                 new ControlElement.IconData( Material.COAL ),
@@ -74,7 +73,7 @@ public class Settings {
 
     private void saveConfig(){
         AntiRageAddon.getInstance().getConfig().addProperty(ENABLED, this.enabled);
-        //AntiRageAddon.getInstance().getConfig().addProperty(EXACT_CHECK, this.exact);
+        AntiRageAddon.getInstance().getConfig().addProperty(EXACT_CHECK, this.exact);
         AntiRageAddon.getInstance().getConfig().addProperty(TOGGLE_KEY, this.toggleKey);
         //AntiRageAddon.getInstance().getConfig().addProperty(MENU_KEY, this.menuKey);
     }

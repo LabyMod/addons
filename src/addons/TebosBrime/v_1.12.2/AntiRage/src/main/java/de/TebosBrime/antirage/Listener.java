@@ -156,11 +156,41 @@ public class Listener {
         }
 
         if(AntiRageAddon.getSettings().isExactCheck()){
-            // NotImplementedYet
+            String[] messageSplit = upperString.split(" ");
+            for(String filter : AntiRageAddon.getFilter()){
+                if(!upperString.contains(filter)){
+                    continue;
+                }
+
+                String[] filterSplit = filter.split(" ");
+
+                int testValue = 0;
+                boolean found = false;
+
+                for(String m : messageSplit){
+                    if(m.equals(filterSplit[testValue])){
+
+                        found = true;
+                        testValue ++;
+                        if(testValue >= filterSplit.length){
+                            break;
+                        }
+                    } else if(found){
+                        found = false;
+                        testValue = 0;
+                    }
+                }
+
+                if(found){
+                    sendAllowMessage(filter, message);
+                    return true;
+                }
+
+            }
         }else{
             if(AntiRageAddon.getFilter().parallelStream().anyMatch(upperString::contains)){
-                Optional<String> match = AntiRageAddon.getFilter().parallelStream().filter(upperString::contains).findAny();
-                sendAllowMessage(match.get(), message);
+                Optional<String> m = AntiRageAddon.getFilter().parallelStream().filter(upperString::contains).findAny();
+                sendAllowMessage(m.get(), message);
                 return true;
             }
         }
