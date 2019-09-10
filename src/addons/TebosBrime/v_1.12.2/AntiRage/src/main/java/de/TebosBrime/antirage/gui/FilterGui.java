@@ -12,6 +12,8 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 public class FilterGui extends GuiScreen {
 
@@ -71,7 +73,9 @@ public class FilterGui extends GuiScreen {
         this.hoveredString = null;
         double yPos = 45.0D + this.scrollbar.getScrollY() + 3.0D;
 
-        for (String item : AntiRageAddon.getFilter()){
+        List<String> items = AntiRageAddon.getFilter();
+        Collections.sort(items);
+        for (String item : items){
             drawEntry(item, yPos, mouseX, mouseY);
             yPos += 15.0D;
         }

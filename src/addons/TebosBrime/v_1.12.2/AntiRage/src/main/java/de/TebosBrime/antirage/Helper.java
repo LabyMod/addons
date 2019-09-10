@@ -5,6 +5,7 @@ import net.labymod.main.LabyMod;
 public class Helper {
 
     public static void addWordToFilter(String word, boolean withMessage){
+        word = word.trim();
         if(!AntiRageAddon.getFilter().contains(word.toUpperCase())){
             AntiRageAddon.getFilter().add(word.toUpperCase());
         }
@@ -15,6 +16,7 @@ public class Helper {
     }
 
     public static void removeWordFromFilter(String word, boolean withMessage){
+        word = word.trim();
         if(AntiRageAddon.getFilter().contains(word.toUpperCase())){
             AntiRageAddon.getFilter().remove(word.toUpperCase());
             if(withMessage){
