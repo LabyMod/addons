@@ -19,7 +19,7 @@ public class TimeFormat {
         int minutes = (int) ((millis / (1000*60)) % 60);
         int hours = (int) (millis / (1000*60*60));
 
-        if(!full){
+        if(full){
             hours = hours % 24;
         }
 
