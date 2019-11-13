@@ -3,7 +3,8 @@ name: CI
 on: [push]
 
 jobs:
-    runs-on: ubuntu-latest
-    steps:
-        - name: Test step
-          run: echo 'Testing GH Actions'
+    build:
+        runs-on: debian-stretch
+        steps:
+            - name: Test step
+              run: echo 'Testing GH Actions'
