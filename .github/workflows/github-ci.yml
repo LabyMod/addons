@@ -1,0 +1,9 @@
+name: CI
+
+on: [push]
+
+jobs:
+    runs-on: stretch-latest
+    steps:
+        - name: Test step
+          run: echo 'Testing GH Actions'
