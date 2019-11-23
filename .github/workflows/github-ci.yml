@@ -11,8 +11,6 @@ jobs:
         runs-on: ubuntu-latest
 #        if: github.event_name == 'push'
         steps:
-            shell: bash
-
             - name: Install necessary packages
               run: apt-get update -q && apt-get -y install sudo git vim curl openssh-client openssh-server && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
