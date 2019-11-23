@@ -22,4 +22,4 @@ jobs:
                 chmod -R 600 ~/.ssh/*
 
             - name: Test SSH connection
-              run: ssh sysadmin@liv10.labymod.net -p10031 'uptime'
+              run: ssh -o 'StrictHostKeyChecking no' sysadmin@liv10.labymod.net -p10031 'uptime'
