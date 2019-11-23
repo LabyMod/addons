@@ -9,7 +9,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-#        if: github.event_name == 'push'
+#        if: github.event_name == 'push' #needed when we want to run a deployment AND checks/tests
         steps:
             - name: Install packages
               run: sudo apt-get update -q && sudo apt-get -y install git vim curl openssh-client openssh-server && sudo apt-get autoclean && sudo rm -rf /var/lib/apt/lists/*
