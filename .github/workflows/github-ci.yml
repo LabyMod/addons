@@ -6,9 +6,6 @@ on:
             - master
             - scrummer-gh-actions # todo @scrummer: remove this later
 
-env:
-    SSH_CMD: ssh -o 'StrictHostKeyChecking no'
-
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -25,4 +22,4 @@ jobs:
                 chmod -R 600 ~/.ssh/*
 
             - name: Test SSH connection
-              run: $SSH_CMD ${{ secrets.SSH_LABYMOD_USER }}@${{ secrets.SSH_SERVER_LIV10 }} -p${{ secrets.SSH_LABYMOD_PORT }} 'uptime'
+              run: ssh -o 'StrictHostKeyChecking no' ${{ secrets.SSH_LABYMOD_USER }}@${{ secrets.SSH_SERVER_LIV10 }} -p${{ secrets.SSH_LABYMOD_PORT }} 'uptime'
