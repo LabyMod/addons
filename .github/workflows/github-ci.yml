@@ -17,7 +17,6 @@ jobs:
             - name: Prepare SSH client
               run: |
                 mkdir -p ~/.ssh
-#                echo '    StrictHostKeyChecking no' >> /etc/ssh/ssh_config
                 echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/id_rsa
                 echo '${{ secrets.SSH_PUBLIC_KEY }}' > ~/.ssh/id_rsa.pub
                 chmod -R 600 ~/.ssh/*
