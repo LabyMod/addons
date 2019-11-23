@@ -14,5 +14,13 @@ jobs:
             - name: Install necessary packages
               run: sudo apt-get update -q && sudo apt-get -y install git vim curl openssh-client openssh-server && sudo apt-get autoclean && sudo rm -rf /var/lib/apt/lists/*
 
-            - name: Test step
-              run: echo 'Testing GH Actions'
+            - name: Prepare SSH client
+              run: |
+                mkdir -p ~/.ssh
+                echo '    StrictHostKeyChecking no' >> /etc/ssh/ssh_config
+                echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/id_rsa
+                echo '${{ secrets.SSH_PUBLIC_KEY }}' > ~/.ssh/id_rsa.pub
+                chmod -R 600 ~/.ssh/*
+
+            - name: Testing SSH connection
+              run: ssh sysadmin@liv10.labymod.net -p10031 'uptime'
