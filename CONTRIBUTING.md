@@ -31,6 +31,9 @@ Like this:
         └── example-addon
 ```
 
+### Naming conventions
+Vendor as well as package/addon names have to be in kabab-case (all lower case and separated with dashes).
+
 ## Contributor License Agreement
 The following terms are used throughout this agreement:
 
