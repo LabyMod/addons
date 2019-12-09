@@ -1,0 +1,10 @@
+{
+  "uuid": "%uuid%",
+  "name": "ChatTranslator",
+  "mainClass": "de.TebosBrime.translate.TranslatorAddon",
+  "description": "Add a button which translate a chat message to your language.\n+fix: russian encoding",
+  "version": 4,
+  "author": "TebosBrime",
+  "category": 2,
+  "icon": "http://tebosbrime.de/labymodaddons/img/translate.png"
+}
