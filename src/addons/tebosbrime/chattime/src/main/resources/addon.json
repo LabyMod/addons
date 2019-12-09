@@ -1,0 +1,10 @@
+{
+  "uuid": "%uuid%",
+  "name": "ChatTime",
+  "mainClass": "de.TebosBrime.chattime.ChatTimeAddon",
+  "description": "Displays the current time in front of every chat message.\n+add: hover events!",
+  "version": 6,
+  "author": "TebosBrime",
+  "category": 2,
+  "icon": "http://tebosbrime.de/labymodaddons/img/chattime.png"
+}
