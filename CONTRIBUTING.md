@@ -34,6 +34,14 @@ Like this:
 ### Naming conventions
 Vendor as well as package/addon names have to be in kabab-case (all lower case and separated with dashes).
 
+### Minecraft versions
+If you want to deploy your addon for multiple Minecraft versions this is no problem at all.
+
+For each Minecraft version that is supported by LabyMod, this repository has a branch (e.g. `1.8.9`).<br>
+The `master` branch on the other hand represents always the main version, which LabyMod is currently developed for.
+
+An overview of the available branches and which are actively maintained and which not, is provided in the [README.md](./README.md)
+
 ## Contributor License Agreement
 The following terms are used throughout this agreement:
 
