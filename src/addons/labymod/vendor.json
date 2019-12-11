@@ -1,0 +1,13 @@
+{
+    "name": "labymod",
+    "authors": [
+        {
+            "name": "LabyMedia GmbH",
+            "role": "Maintainer",
+            "contact": {
+                "email": "info@labymod.net",
+                "twitter": "labymod"
+            }
+        }
+    ]
+}

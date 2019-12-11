@@ -24,11 +24,13 @@ In `/src/addons` all the addons are stored within a directory of the vendor.
 Like this:
 ```
 /src/addons
-    ├── labymod
-    │   ├── addon-one
-    │   └── addon-two
-    └── vendor-xy
-        └── example-addon
+    ├── /labymod
+    │   ├── vendor.json
+    │   ├── /addon-one
+    │   └── /addon-two
+    └── /vendor-xy
+        ├── vendor.json
+        └── /example-addon
 ```
 
 ### Naming conventions
@@ -41,6 +43,33 @@ For each Minecraft version that is supported by LabyMod, this repository has a b
 The `master` branch on the other hand represents always the main version, which LabyMod is currently developed for.
 
 An overview of the available branches and which are actively maintained and which not, is provided in the [README.md](./README.md)
+
+### The `vendor.json` file
+Every vendor needs a `vendor.json` file, to provide contact information and some personal data.
+If the addons have multiple developers or you are a company/brand, simply add multiple blocks within `authors`.
+
+The file must be in the following format:
+```json
+{
+    "name": "labymod",
+    "authors": [
+       {
+           "name": "LabyMedia GmbH",
+           "role": "Developer",
+           "contact": {
+               "email": "info@labymod.net",
+               "twitter": "labymod",
+               "discord": "Scrummer#0001"
+           }
+       }
+   ]
+}
+```
+The following fields are mandatory:
+* **name:** (Personal or company/brand name)
+* **authors.name:** (Name of the directory in kebab-case, e.g. product or artist name)
+* **authors.role:** Role of the contributor. E.g.: Maintainer, Developer, Contributor, Translator, etc.
+* **authors.contact:** Provide **at least one** of email, twitter or discord
 
 ## Contributor License Agreement
 The following terms are used throughout this agreement:
