@@ -66,8 +66,8 @@ The file must be in the following format:
 }
 ```
 The following fields are mandatory:
-* **name:** (Personal or company/brand name)
-* **authors.name:** (Name of the directory in kebab-case, e.g. product or artist name)
+* **name:** (Name of the directory - company, brand or product name - in kebab-case, e.g. product or artist name)
+* **authors.name:** (Personal or company/brand name)
 * **authors.role:** Role of the contributor. E.g.: Maintainer, Developer, Contributor, Translator, etc.
 * **authors.contact:** Provide **at least one** of email, twitter or discord
 
