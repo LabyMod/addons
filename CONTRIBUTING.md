@@ -54,16 +54,16 @@ The file must be in the following format:
 {
     "name": "labymod",
     "authors": [
-       {
-           "name": "LabyMedia GmbH",
-           "role": "Developer",
-           "contact": {
-               "email": "info@labymod.net",
-               "twitter": "labymod",
-               "discord": "Scrummer#0001"
-           }
-       }
-   ]
+        {
+            "name": "LabyMedia GmbH",
+            "role": "Developer",
+            "contact": {
+                "email": "info@labymod.net",
+                "twitter": "labymod",
+                "discord": "Scrummer#0001"
+            }
+        }
+    ]
 }
 ```
 The following fields are mandatory:
