@@ -24,12 +24,57 @@ In `/src/addons` all the addons are stored within a directory of the vendor.
 Like this:
 ```
 /src/addons
-    ├── labymod
-    │   ├── addon-one
-    │   └── addon-two
-    └── vendor-xy
-        └── example-addon
+    ├── /labymod
+    │   ├── vendor.json
+    │   ├── /addon-one
+    │   └── /addon-two
+    └── /vendor-xy
+        ├── vendor.json
+        ├── (README.md)
+        └── /example-addon
 ```
+
+### Naming conventions
+Vendor as well as package/addon names have to be in kabab-case (all lower case and separated with dashes).
+
+### Minecraft versions
+If you want to deploy your addon for multiple Minecraft versions this is no problem at all.
+
+For each Minecraft version that is supported by LabyMod, this repository has a branch (e.g. `1.8.9`).<br>
+The `master` branch on the other hand represents always the main version, which LabyMod is currently developed for.
+
+An overview of the available branches and which are actively maintained and which not, is provided in the [README.md](./README.md)
+
+### The `vendor.json` file
+Every vendor needs a `vendor.json` file, to provide contact information and some personal data.
+If the addons have multiple developers or you are a company/brand, simply add multiple blocks within `authors`.
+
+The file must be in the following format:
+```json
+{
+    "name": "labymod",
+    "authors": [
+       {
+           "name": "LabyMedia GmbH",
+           "role": "Developer",
+           "contact": {
+               "email": "info@labymod.net",
+               "twitter": "labymod",
+               "discord": "Scrummer#0001"
+           }
+       }
+   ]
+}
+```
+The following fields are mandatory:
+* **name:** (Name of the directory - company, brand or product name - in kebab-case, e.g. product or artist name)
+* **authors.name:** (Personal or company/brand name)
+* **authors.role:** Role of the contributor. E.g.: Maintainer, Developer, Contributor, Translator, etc.
+* **authors.contact:** Provide **at least one** of email, twitter or discord
+
+### Optional: A `README.md` vendor-file
+To provide additional information (build information, personal conventions, etc.) you can **optionally** add a `README.md` file within your vendor directory.
+(For an example please view the directory structure [above](#workflow))
 
 ## Contributor License Agreement
 The following terms are used throughout this agreement:

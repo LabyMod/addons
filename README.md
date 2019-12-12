@@ -12,6 +12,16 @@ Here you can collaborate with others, review their addons, improve them and if e
 ### Workflow
 Please have a look [here](./CONTRIBUTING.md#workflow) for diving into contribution.
 
+### Branches & Minecraft versions
+For each Minecraft version that is supported by LabyMod, this repository has a branch where the PRs are being merged in.
+Please study this carefully and decide to which branch you create your PR.
+#### Actively maintained version-branches
+* `master` (currently for Minecraft `v1.8.9`)
+* `1.12.2`
+
+#### Inactive/Deprecated branches
+\-
+
 ### Resources
 * [Developer documentation for Addons](https://docs.labymod.net/pages/create-addons/introduction/)
 * [LabyMod-Developer Discord](https://labymod.net/dc/dev)
