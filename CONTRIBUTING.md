@@ -30,6 +30,7 @@ Like this:
     │   └── /addon-two
     └── /vendor-xy
         ├── vendor.json
+        ├── (README.md)
         └── /example-addon
 ```
 
@@ -70,6 +71,10 @@ The following fields are mandatory:
 * **authors.name:** (Personal or company/brand name)
 * **authors.role:** Role of the contributor. E.g.: Maintainer, Developer, Contributor, Translator, etc.
 * **authors.contact:** Provide **at least one** of email, twitter or discord
+
+### Optional: A `README.md` vendor-file
+To provide additional information (build information, personal conventions, etc.) you can **optionally** add a `README.md` file within your vendor directory.
+(For an example please view the directory structure [above](#workflow))
 
 ## Contributor License Agreement
 The following terms are used throughout this agreement:
