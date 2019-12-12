@@ -1,14 +1,14 @@
 {
-    "name": "tebosbrime",
-    "authors": [
-        {
-            "name": "Nico Schmidt",
-            "role": "Maintainer",
-            "contact": {
-                "email": "labymod@TebosBrime.de",
-				"discord": "TebosBrime#6327",
-                "twitter": "tebosbrime"
-            }
-        }
-    ]
+  "name": "tebosbrime",
+  "authors": [
+    {
+      "name": "Nico Schmidt",
+      "role": "Maintainer",
+      "contact": {
+        "email": "labymod@TebosBrime.de",
+        "discord": "TebosBrime#6327",
+        "twitter": "tebosbrime"
+      }
+    }
+  ]
 }
