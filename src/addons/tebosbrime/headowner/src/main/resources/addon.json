@@ -1,0 +1,10 @@
+{
+  "uuid": "%uuid%",
+  "name": "HeadOwner",
+  "mainClass": "de.TebosBrime.headowner.HeadOwnerAddon",
+  "description": "Shows the owner of the head you're looking at",
+  "version": 3,
+  "author": "TebosBrime",
+  "category": 2,
+  "icon": "http://tebosbrime.de/labymodaddons/img/headowner.png"
+}
