@@ -2,7 +2,7 @@
   "uuid": "%uuid%",
   "name": "Direct Connect History",
   "mainClass": "de.raik.directconnecthistory.DirectConnectHistoryAddon",
-  "description": "Logs the last servers you have join via the direct connect feature.",
+  "description": "Logs the last servers you have joined via the direct connect feature.",
   "version": 1,
   "author": "MineFlash07",
   "category": 2,
