@@ -42,6 +42,7 @@ public class DirectConnectScreen extends GuiScreen {
     //Own needed attributes
     private DropDownMenu<String> lastServers;
     private String lastServer;
+    private boolean toSmall = false;
 
     /*
      * Copied default constructor
@@ -81,8 +82,10 @@ public class DirectConnectScreen extends GuiScreen {
         //Default element adding
         Keyboard.enableRepeatEvents(true);
         this.buttonList.clear();
-        this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 96 + 12, I18n.format("selectServer.select", new Object[0])));
-        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 120 + 12, I18n.format("gui.cancel", new Object[0])));
+        //Preventing overlapping
+        this.toSmall = this.height / 4 + 96 + 12 < 220;
+        this.buttonList.add(new GuiButton(0, this.width / 2 - 100, toSmall ? 195: this.height / 4 + 96 + 12, I18n.format("selectServer.select", new Object[0])));
+        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, toSmall ? 216: this.height / 4 + 120 + 12, I18n.format("gui.cancel", new Object[0])));
         this.textField = new GuiTextField(2, LabyModCore.getMinecraft().getFontRenderer(), this.width / 2 - 100, 116, 200, 20);
         this.textField.setMaxStringLength(128);
         this.textField.setFocused(true);
@@ -97,7 +100,7 @@ public class DirectConnectScreen extends GuiScreen {
             servers.remove(servers.size() - 1);
         }
         String[] serverArray = new String[servers.size()];
-        this.lastServers = (new DropDownMenu<String>("Server history", this.width / 2 - 100, 160, 200, 20)).fill(servers.toArray(serverArray));
+        this.lastServers = (new DropDownMenu<String>("Server history", this.width / 2 - 100, 160 - (toSmall ? 19 : 0), 200, 20)).fill(servers.toArray(serverArray));
         if (servers.toArray(serverArray).length >= 1)
             this.lastServers.setSelected(servers.toArray(serverArray)[0]);
         this.lastServers.setMaxY(this.height);
@@ -109,9 +112,9 @@ public class DirectConnectScreen extends GuiScreen {
         });
         this.lastServers.setEnabled(true);
         // Adding new buttons
-        this.buttonList.add(new GuiButton(3, this.width / 2- 100, 190, 100, 20, "Paste"));
+        this.buttonList.add(new GuiButton(3, this.width / 2- 100, 190 - (toSmall ? 19 : 0), 100, 20, "Paste"));
         this.buttonList.get(2).enabled = servers.size() > 0;
-        this.buttonList.add(new GuiButton(4, this.width / 2, 190, 100, 20, "Join"));
+        this.buttonList.add(new GuiButton(4, this.width / 2, 190 - (toSmall ? 19 : 0), 100, 20, "Join"));
         this.buttonList.get(3).enabled = servers.size() > 0;
     }
 
@@ -141,7 +144,8 @@ public class DirectConnectScreen extends GuiScreen {
             servers.remove(this.lastServer);
         if (servers.contains(ip))
             servers.remove(ip);
-        servers.add(0, this.lastServer);
+        if (!this.lastServer.equals(""))
+            servers.add(0, this.lastServer);
         while (servers.size() > DirectConnectHistoryAddon.getInstance().getHistoryAmount()) {
             servers.remove(servers.size() - 1);
         }
@@ -221,7 +225,7 @@ public class DirectConnectScreen extends GuiScreen {
         //Default drawings
         this.drawDefaultBackground();
         this.drawCenteredString(LabyModCore.getMinecraft().getFontRenderer(), I18n.format("selectServer.direct", new Object[0]), this.width / 2, 20, 16777215);
-        this.drawString(LabyModCore.getMinecraft().getFontRenderer(), I18n.format("addServer.enterIp", new Object[0]), this.width / 2 - 100, 100, 10526880);
+        this.drawString(LabyModCore.getMinecraft().getFontRenderer(), I18n.format("addServer.enterIp", new Object[0]), this.width / 2 - 100, 100 - (toSmall ? 19 : 0), 10526880);
         this.textField.drawTextBox();
         super.drawScreen(mouseX, mouseY, partialTicks);
         //Drawing DropDownMenu
