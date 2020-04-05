@@ -32,9 +32,6 @@ public class DirectConnectHistoryAddon  extends LabyModAddon {
         this.config = new Config("Direct Connect History", Paths.get(Minecraft.getMinecraft().mcDataDir.toString()
                 ,"LabyMod", "addons-config-global").toString());
 
-        //Calling direct connect check
-        this.checkDirectConnectServer();
-
         // Setting static instance
         instance = this;
     }
@@ -44,6 +41,7 @@ public class DirectConnectHistoryAddon  extends LabyModAddon {
         this.historyAmount = config.getConfigAsJsonObject().has("amount") ? config.getConfigAsJsonObject().get("amount").getAsInt() : this.historyAmount;
         if (!config.getConfigAsJsonObject().has("servers")) {
             config.getConfigAsJsonObject().add("servers", new JsonArray());
+            this.checkDirectConnectServer();
             return;
         }
         this.server.clear();
@@ -51,6 +49,9 @@ public class DirectConnectHistoryAddon  extends LabyModAddon {
         for (int i = 0; i < Math.min(this.historyAmount, array.size()); i++) {
             this.server.add(array.get(i).getAsString());
         }
+
+        //Calling direct connect check
+        this.checkDirectConnectServer();
     }
 
     @Override
