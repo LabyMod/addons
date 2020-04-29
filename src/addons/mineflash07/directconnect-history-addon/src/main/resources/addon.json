@@ -1,0 +1,10 @@
+{
+  "uuid": "%uuid%",
+  "name": "Direct Connect History",
+  "mainClass": "de.raik.directconnecthistory.DirectConnectHistoryAddon",
+  "description": "Logs the last servers you have joined via the direct connect feature.",
+  "version": 1,
+  "author": "MineFlash07",
+  "category": 2,
+  "icon": "https://mineflash07.github.io/images/addons/directconnecthistory.png"
+}
