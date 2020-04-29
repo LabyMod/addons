@@ -86,7 +86,7 @@ public class DirectConnectScreen extends GuiScreen {
         this.toSmall = this.height / 4 + 96 + 12 < 220;
         this.buttonList.add(new GuiButton(0, this.width / 2 - 100, toSmall ? 195: this.height / 4 + 96 + 12, I18n.format("selectServer.select", new Object[0])));
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, toSmall ? 216: this.height / 4 + 120 + 12, I18n.format("gui.cancel", new Object[0])));
-        this.textField = new GuiTextField(2, LabyModCore.getMinecraft().getFontRenderer(), this.width / 2 - 100, 116, 200, 20);
+        this.textField = new GuiTextField(2, LabyModCore.getMinecraft().getFontRenderer(), this.width / 2 - 100, 116 - (toSmall ? 19 : 0), 200, 20);
         this.textField.setMaxStringLength(128);
         this.textField.setFocused(true);
         this.textField.setText(this.mc.gameSettings.lastServer);
