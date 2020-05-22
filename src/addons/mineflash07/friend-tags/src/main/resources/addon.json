@@ -1,0 +1,10 @@
+{
+    "uuid": "%uuid%",
+    "name": "Friend Tags",
+    "mainClass": "de.raik.friendtags.FriendTagsAddon",
+    "description": "With this addon you see a tag above the head of labymod chat friends.",
+    "version": 1,
+    "author": "MineFlash07",
+    "category": 4,
+    "icon": "https://dl.labymod.net/latest/addons/72115a66-1f9b-4cf0-b346-918075847a7d/icon.png"
+}
