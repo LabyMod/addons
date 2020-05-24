@@ -1,0 +1,25 @@
+name: Build addons
+
+on:
+    push:
+        branches:
+            - master
+            - scrummer-gh-actions # todo @scrummer: remove this later
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+#        if: github.event_name == 'push' #needed when we want to run a deployment AND checks/tests
+        steps:
+            - name: Install packages
+              run: sudo apt-get update -q && sudo apt-get -y install git vim curl openssh-client openssh-server && sudo apt-get autoclean && sudo rm -rf /var/lib/apt/lists/*
+
+            - name: Prepare SSH client
+              run: |
+                mkdir -p ~/.ssh
+                echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/id_rsa
+                echo '${{ secrets.SSH_PUBLIC_KEY }}' > ~/.ssh/id_rsa.pub
+                chmod -R 600 ~/.ssh/*
+
+            - name: Test SSH connection
+              run: ssh -o 'StrictHostKeyChecking no' ${{ secrets.SSH_LABYMOD_USER }}@${{ secrets.SSH_SERVER_LIV10 }} -p${{ secrets.SSH_LABYMOD_PORT }} 'uptime'
